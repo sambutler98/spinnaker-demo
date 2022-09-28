@@ -11,22 +11,53 @@ import java.util.Random;
 public class RestController {
 
     @GetMapping("/rock")
-    public @ResponseBody Answer rockPlayed() {
-        String b;
-        Random r = new Random();
-        int low = 1;
-        int high = 3;
-        int result = r.nextInt(high-low) + low;
+    public @ResponseBody String rockPlayed() {
+        String b = "Scissors";
+        int result = new Random().nextInt(3);
 
-        if(result == 1) {
+        if(result == 0) {
             b = "Rock";
-        } else if (result == 2) {
+        } else if (result == 1) {
             b = "Paper";
-        } else {
+        } else if (result == 2){
             b = "Scissors";
         }
 
         Answer ans = new Answer("Rock", b);
-        return ans;
+        return ans.toString();
+    }
+
+    @GetMapping("/paper")
+    public @ResponseBody String paperPlayed() {
+        String b = "Scissors";
+        int result = new Random().nextInt(3);
+
+        if(result == 0) {
+            b = "Rock";
+        } else if (result == 1) {
+            b = "Paper";
+        } else if (result == 2){
+            b = "Scissors";
+        }
+
+        Answer ans = new Answer("Paper", b);
+        return ans.toString();
+    }
+
+    @GetMapping("/scissors")
+    public @ResponseBody String scissorsPlayed() {
+        String b = "Scissors";
+        int result = new Random().nextInt(3);
+
+        if(result == 0) {
+            b = "Rock";
+        } else if (result == 1) {
+            b = "Paper";
+        } else if (result == 2){
+            b = "Scissors";
+        }
+
+        Answer ans = new Answer("Scissors", b);
+        return ans.toString();
     }
 }
